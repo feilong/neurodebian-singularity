@@ -1,0 +1,26 @@
+OSVersion: stretch
+MirrorURL: http://ftp.us.debian.org/debian/
+
+%runscript
+    /bin/bash
+
+%post
+    apt-get update
+    apt-get install -y --no-install-recommends wget gnupg dirmngr
+
+    # NeuroDebian
+    wget -O- http://neuro.debian.net/lists/stretch.us-nh.libre | tee /etc/apt/sources.list.d/neurodebian.sources.list
+    apt-key adv --recv-keys --keyserver hkp://pool.sks-keyservers.net:80 0xA5D32F012649A5A9
+
+    apt-get update
+
+    apt-get install -y --no-install-recommends locales
+    echo 'en_US.UTF-8 UTF-8' > /etc/locale.gen
+    locale-gen
+    echo 'LANG=en_US.UTF-8' > /etc/default/locale
+
+    mkdir -p /scratch /local-scratch /fastscratch /ihome /idata
+    chmod a+rX /scratch /local-scratch /fastscratch /ihome /idata
+
+    apt-get install -y --no-install-recommends \
+        python python-numpy python-scipy python-sklearn python-nibabel python-ipython
