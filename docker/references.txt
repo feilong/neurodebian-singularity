@@ -1,0 +1,9 @@
+# https://github.com/neurodebian/dockerfiles/blob/master/dockerfiles/stretch/Dockerfile
+# https://raw.githubusercontent.com/neurodebian/dockerfiles/ff9c3b42146d774585d860000e580ba7367d8101/dockerfiles/stretch/Dockerfile
+https://raw.githubusercontent.com/neurodebian/dockerfiles/master/dockerfiles/stretch/Dockerfile
+
+# https://github.com/docker-library/python/blob/master/3.6/stretch/Dockerfile
+# https://raw.githubusercontent.com/docker-library/python/c9954b06c8b178d7888bc1626bed5a14e43a9203/3.6/stretch/Dockerfile
+https://raw.githubusercontent.com/docker-library/python/master/3.6/stretch/Dockerfile
+
+https://gist.github.com/vsoch/4192e93b0597bee9610ece87e42edf5d
