@@ -5,7 +5,7 @@ bare_tmp=bare.tmp
 bare_def=bare.def
 
 if [[ ! -f $bare_img ]]; then
-    sudo singularity create -s --force 1024 $bare_tmp && \
+    sudo singularity create --force -s 1024 $bare_tmp && \
         sudo singularity bootstrap $bare_tmp $bare_def && \
         sudo mv $bare_tmp $bare_img
     if [[ -f $bare_tmp ]]; then sudo rm $bare_tmp; fi
@@ -27,4 +27,3 @@ function bootstrap_from_image {
 
 bootstrap_from_image bare basic 3072
 bootstrap_from_image basic neurodebian 4096
-# bootstrap_from_image neurodebian python3
