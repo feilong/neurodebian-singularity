@@ -1,8 +1,9 @@
-OSVersion: stretch
-MirrorURL: http://ftp.us.debian.org/debian/
-
 %runscript
     /bin/bash
+
+%files
+    /mnt/raid/komasan/singularity/neurodebian/freesurfer /apps/freesurfer
+    /mnt/raid/komasan/singularity/neurodebian/FS_license.txt /apps/freesurfer/license.txt
 
 %post
     apt-get install -y --no-install-recommends \
@@ -17,7 +18,7 @@ MirrorURL: http://ftp.us.debian.org/debian/
     apt-get install -y --no-install-recommends gcc python-dev
     pip install -U dask distributed pprocess
 
-    apt-get install -y --no-install-recommends tree
+    apt-get install -y --no-install-recommends tree emacs
 
     apt-get purge -y --auto-remove gcc python-dev gnupg dirmngr
 
@@ -25,3 +26,5 @@ MirrorURL: http://ftp.us.debian.org/debian/
     rm -rf /var/lib/apt/lists/*
 
     wget https://raw.githubusercontent.com/feilong/PyMVPA/efa20a58a98270df2a222dc14dbf77e7b3d162b1/mvpa2/algorithms/hyperalignment.py -O /usr/lib/python2.7/dist-packages/mvpa2/algorithms/hyperalignment.py
+
+    mkdir /apps

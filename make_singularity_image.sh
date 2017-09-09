@@ -25,5 +25,5 @@ function bootstrap_from_image {
     set -e
 }
 
-bootstrap_from_image bare basic 3072
-bootstrap_from_image basic neurodebian 4096
+bootstrap_from_image bare basic 8192
+bootstrap_from_image basic neurodebian 8192
